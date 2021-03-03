@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<style>
+    h1{
+        margin-left: 30px;
+        font-family: 'Times New Roman', Times, serif;
+        font: bold;
+    }
+
+    #content{
+        margin-left: 32px;
+        margin-top: -15px;
+        padding-right: 50px;
+        width: 100%;
+        word-wrap: break-word;
+        height: auto;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 22px;
+    }
+
+    #info{
+        float: right;
+        width: auto;
+        height: auto;
+        margin-right: 30px;
+        font-size: 22px;
+        font-family: 'Times New Roman', Times, serif;
+        border-style: groove;
+        border-width: 7px;
+        padding: 10px;
+    }
+</style>
+{% endblock head %}
+
+{% block body %}
+<br><br>
+<h1>{{experience["title"]}}</h1>
+<br>
+<div id="content">
+    {{experience["content"] | safe}}
+</div>
+<div id="info">
+    Deneyimleyen: {{experience["username"]}}
+    <br>
+    Paylaşım Tarihi: {{experience["date"]}}
+</div>
+
+{% endblock body %}

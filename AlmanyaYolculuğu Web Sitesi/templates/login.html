@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<br>
+<h3 class="tnr">Giriş Yap</h3>
+
+{% from "includes/formhelpers.html" import render_field %}
+<form class="form" method="post">
+    {{ render_field(form.username) }}
+    {{ render_field(form.password) }}
+    <button type="submit" class="btn btn-primary">Giriş Yap</button>
+</form>
+
+
+
+{% endblock body %}
+
+{% block head %}
+<style>
+    h3{
+        margin-left: 20px;
+    }
+    .tnr{
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    .form{
+        margin-left: 20px;
+    }
+</style>
+{% endblock head %}

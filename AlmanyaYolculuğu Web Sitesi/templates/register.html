@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<br>
+<h3 class="tnr">Kayıt Ol</h3>
+
+{% from "includes/formhelpers.html" import render_field %}
+<form class="form" method="post">
+<div style="width: 300px;">
+    {{ render_field(form.name,class="form-control") }}
+    {{ render_field(form.familyname,class="form-control") }}
+    {{ render_field(form.username,class="form-control") }}
+    {{ render_field(form.email,class="form-control") }}
+    {{ render_field(form.password,class="form-control") }}
+    {{ render_field(form.confirm,class="form-control") }}
+</div>
+    <!--<input type="checkbox" name="sozlesme">  Bu butonu işaretlerseniz<a href="/kullanici-sozlesmesi"> kullanıcı sözleşmesi</a>ni kabul etmiş olursunuz
+    <br><br> -->
+    <button type="submit" class="btn btn-primary">Kayıt Ol</button>
+</form>
+
+
+
+{% endblock body %}
+
+{% block head %}
+<style>
+    h3{
+        margin-left: 20px;
+    }
+    .tnr{
+        font-family: 'Times New Roman', Times, serif;
+    }
+    .form{
+        margin-left: 20px;
+    }
+</style>
+{% endblock head %}

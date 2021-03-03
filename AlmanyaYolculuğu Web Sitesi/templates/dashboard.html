@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<style>
+
+</style>
+{% endblock head %}
+
+{% block body %}
+
+<div class="container">
+    <br><br>
+    <h2>Tecrübelerin</h2>            
+    <table class="table table-hover">
+      <thead>
+          <tr>
+              <th>Başlık</th>
+              <th>Tarih</th>
+              <th></th>
+              <th></th>
+              <th></th>
+          </tr>
+      </thead>
+      <tbody>
+          {% for experience in data %}
+            <tr>
+              <th>{{experience["title"]}}</th>
+              <th>{{experience["date"]}}</th>
+              <th><a href="/experience/{{experience['id']}}"><button class="btn btn-primary">Görüntüle</button></a></th>
+              <th><a href="/edit/{{experience['id']}}"><button class="btn btn-info">Güncelle</button></a></th>
+              <th><a href="/delete-experience/{{experience['id']}}"><button class="btn btn-danger">Sil</button></a></th>
+            </tr>
+          {% endfor %}
+      </tbody>
+    </table>
+    {% if session["username"] == "GulumserKaraburun" %}
+    <div>
+      <a href="/dashboard/add-admin-experience"><button class="btn btn-success">Bizim Deneyimimiz Ekle</button></a>  
+    </div>
+    {% else %}
+    <form method="POST">
+      <button type="submit" class="btn btn-success">Deneyim Ekle</button>
+    </form>
+    {% endif %}
+  </div>
+
+
+
+{% endblock body %}

@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<div class="container">
+    <br><br>
+    <h2 id="tecrübe">Tecrübeleriniz</h2>
+    <form action="/search" method="POST">
+        <div style="width: 600px; margin-left: 400px; margin-top: -45px;">
+            <input type="text" name="domates" placeholder="Deneyimler arası ara..." class="form-control">
+        </div>
+        <button class="btn btn-primary" style="margin-left: 1015px; margin-top: -65px;" type="submit"><img src="https://www.freeiconspng.com/uploads/search-icon-png-0.png" width="20px" height="20px"></button>
+    </form>
+    <table id="table" class="table table-hover">
+        <thead>
+            <tr>
+                <th>Kullanıcı Adı</th>
+                <th>Başlık</th>
+                <th>Tarih</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            {% for experience in data %}
+            
+            {% if experience["username"] != "GulumserKaraburun" %}
+                <tr>
+                    <th>{{experience["username"]}}</th>
+                    <th>{{experience["title"]}}</th>
+                    <th>{{experience["date"]}}</th>
+                    <th><a href="/experience/{{experience['id']}}"><button type="submit" class="btn btn-primary">Görüntüle</button></a></th>
+                </tr>
+            {% else %}
+            {% endif %}
+            
+            {% endfor %}
+
+        </tbody>
+    </table>
+</div>
+
+
+
+{% endblock body %}
